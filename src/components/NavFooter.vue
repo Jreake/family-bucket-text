@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Component</p>
+    <p>nav-footer</p>
   </div>
 </template>
 

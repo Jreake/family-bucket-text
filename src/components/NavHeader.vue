@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Component</p>
+    <p>nav-header</p>
   </div>
 </template>
 
