@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import storage from './storage/index'
+// import storage from './storage/index'
 export default {
   name: 'App',
   data () {

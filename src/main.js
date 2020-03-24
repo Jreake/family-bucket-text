@@ -3,11 +3,13 @@ import router from './router/router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import App from './App.vue'
+import ENV from './env/env'
 
 
 //根据前端的跨域方式做调整
+//更具环境变量获取不同的url地址
 const service = axios.create({
-  baseURL: '/api',
+  baseURL: ENV.baseURL,
   timeout: 8000
 })
 
