@@ -5,17 +5,19 @@ import VueAxios from 'vue-axios'
 import App from './App.vue'
 // import ENV from './env/env'
 
+const mock = false;
+if(mock){
+  require('./mock/api');
+}
 
 //根据前端的跨域方式做调整
 //更具环境变量获取不同的url地址
-const service = axios.create({
-  baseURL: '/api',
-  timeout: 8000
-})
+axios.defaults.baseURL = '/api';
+axios.defaults.timeout = 8000; 
 
 
 //接口错误拦截
-service.interceptors.response.use((response) => {
+axios.interceptors.response.use((response) => {
   let res = response.data
   if (res.status == 0) {
     return res.data

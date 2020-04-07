@@ -1,19 +1,16 @@
 <template>
   <div>
-    <p>index</p>
+    <service-bar></service-bar>
   </div>
 </template>
 
 <script>
+import ServiceBar from '../components/ServiceBar'
 export default {
-  name: '',
-  data () {
-    return {
-
-    }
+  name: 'index',
+  components: {
+    ServiceBar
   }
 }
 </script>
 
-<style lang="less" scoped>
-</style>
