@@ -12,7 +12,7 @@
                   <li v-for="(sub ,subIndex) in item"
                       :key="subIndex">
                     <a :href="sub ? '/#/product/'+ sub.id: ''">
-                      <img :src="sub ? sub.img: '/imgs/item-box-1.png'">
+                      <img v-lazy="sub ? sub.img: '/imgs/item-box-1.png'">
                       {{sub ? sub.name :'小米9'}}
                     </a>
                   </li>
@@ -46,7 +46,7 @@
           <swiper-slide v-for="(item,index) in slideList"
                         :key="index">
             <a :href="'/#/product/'+item.id">
-              <img :src="item.img">
+              <img v-lazy="item.img">
             </a>
           </swiper-slide>
           <div class="swiper-pagination"
@@ -62,12 +62,12 @@
         <a :href="'/#/product/'+ item.id"
            v-for="(item,addIndex) in adsList"
            :key="addIndex">
-          <img :src="item.img">
+          <img v-lazy="item.img">
         </a>
       </div>
       <div class="banner">
         <a href="/#/product/30">
-          <img src="/imgs/banner-1.png">
+          <img v-lazy="'/imgs/banner-1.png'">
         </a>
       </div>
     </div>
@@ -77,7 +77,7 @@
         <div class="wrapper">
           <div class="banner-left">
             <a href="/#/product/35">
-              <img src="/imgs/mix-alpha.jpg">
+              <img v-lazy="'/imgs/mix-alpha.jpg'">
             </a>
           </div>
           <div class="list-box">
@@ -89,12 +89,13 @@
                    :key="j">
                 <span :class="{'new-pro': j%2 == 0}">新品</span>
                 <div class="item-img">
-                  <img :src="item.mainImage">
+                  <img v-lazy="item.mainImage">
                 </div>
                 <div class="item-info">
                   <h3>{{item.name}}</h3>
                   <p>{{item.subtitle}}</p>
-                  <p class="price">{{item.price|currency }}</p>
+                  <p class="price"
+                     @click="addCart(item.id)">{{item.price|currency }}</p>
                 </div>
               </div>
             </div>
@@ -107,7 +108,9 @@
            sureText="查看购物车"
            btnType="1"
            modalType="middle"
-           :showModal="true">
+           :showModal="showModal"
+           @submit="goToCart"
+           @cancel="showModal=false">
       <template v-slot:body>
         <p>商品添加成功</p>
       </template>
@@ -181,7 +184,8 @@ export default {
         { id: '45', img: '/imgs/ads/ads-3.png' },
         { id: '47', img: '/imgs/ads/ads-4.jpg' }
       ],
-      phoneList: []
+      phoneList: [],
+      showModal: false
     }
   },
   filters: {
@@ -205,6 +209,21 @@ export default {
         res.list = res.list.slice(6, 14);
         this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]
       })
+    },
+    addCart (id) {
+      this.showModal = true;
+      console.log(id)
+      // this.axios.post('/carts', {
+      //   categoryId: id,
+      //   selected: true
+      // }).then((res) => {
+      //   console.log(res);
+      // }).catch(() => {
+      //   this.showModal = true;
+      // })
+    },
+    goToCart () {
+      this.$router.push('/cart');
     }
   }
 }

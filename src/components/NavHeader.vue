@@ -33,7 +33,7 @@
                   <a :href="'/#/product/'+item.id"
                      target="_blank">
                     <div class="pro-imgs">
-                      <img :src="item.mainImage"
+                      <img v-lazy="item.mainImage"
                            :alt="item.subtitle">
                     </div>
                     <div class="pro-name">{{item.name}}</div>
@@ -57,7 +57,7 @@
                   <a :href="'/#/product/'+item.id"
                      target="_blank">
                     <div class="pro-imgs">
-                      <img src="../../public/imgs/nav-img/nav-3-1.jpg"
+                      <img v-lazy="item.img"
                            :alt="item.subtitle">
                     </div>
                     <div class="pro-name">{{item.name}}</div>
@@ -94,37 +94,37 @@ export default {
         name: '小米壁挂电视',
         subtitle: '3200万+4800万 前后双摄像机',
         price: '6999',
-        img: '../../public/imgs/nav-img/nav-3-1.jpg'
+        img: '/imgs/nav-img/nav-3-1.jpg'
       }, {
         id: '2',
         name: '小米壁挂电视',
         subtitle: '3200万+4800万 前后双摄像机',
         price: '6999',
-        img: '../../public/imgs/nav-img/nav-3-2.jpg'
+        img: '/imgs/nav-img/nav-3-2.jpg'
       }, {
         id: '3',
         name: '小米壁挂电视',
         subtitle: '3200万+4800万 前后双摄像机',
         price: '6999',
-        img: '../../public/imgs/nav-img/nav-3-3.png'
+        img: '/imgs/nav-img/nav-3-3.png'
       }, {
         id: '4',
         name: '小米壁挂电视',
         subtitle: '3200万+4800万 前后双摄像机',
         price: '6999',
-        img: '../../public/imgs/nav-img/nav-3-4.jpg'
+        img: '/imgs/nav-img/nav-3-4.jpg'
       }, {
         id: '5',
         name: '小米壁挂电视',
         subtitle: '3200万+4800万 前后双摄像机',
         price: '6999',
-        img: '../../public/imgs/nav-img/nav-3-5.jpg'
+        img: '/imgs/nav-img/nav-3-5.jpg'
       }, {
         id: '6',
         name: '小米壁挂电视',
         subtitle: '3200万+4800万 前后双摄像机',
         price: '6999',
-        img: '../../public/imgs/nav-img/nav-3-6.png'
+        img: '/imgs/nav-img/nav-3-6.png'
       }]
     }
   },

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import router from './router/router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueLazyLoad from 'vue-lazyload'
 import App from './App.vue'
 // import ENV from './env/env'
 
@@ -31,6 +32,9 @@ axios.interceptors.response.use((response) => {
 // axios.interceptors.request.use({})
 
 Vue.use(VueAxios, axios) //加载插件
+Vue.use(VueLazyLoad,{
+  loading:'/imgs/loading-svg/loading-bars.svg'
+})
 Vue.config.productionTip = false //生产环境的提示 默认关闭
 
 new Vue({
