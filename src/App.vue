@@ -11,6 +11,25 @@ export default {
   data () {
     return {
     }
+  },
+  mounted () {
+    this.getUser();
+    this.getCartCount();
+  },
+  methods: {
+    getUser () {
+      this.axios.get('/user').then((res) => {
+        // to-do 保存到VueX中
+        this.$store.dispatch('saveUserName',res.username);
+
+      })
+    },
+    getCartCount () {
+      this.axios.get('/carts/products/sum').then(() => {
+        // to-do 保存到VueX中
+
+      })
+    }
   }
 }
 </script>

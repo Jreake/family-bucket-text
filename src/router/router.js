@@ -9,7 +9,7 @@ export default new Router({
     path: '/',
     name: 'home',
     component: Home,
-    redirect:'/index',
+    redirect: '/index',
     children: [{
         path: '/index',
         name: 'index',
@@ -25,11 +25,18 @@ export default new Router({
         component: () => import('../pages/detail'),
       }
     ]
-  }, {
+  }, 
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../pages/login')
+  },
+  {
     path: '/cart',
     name: 'cart',
     component: () => import('../pages/cart')
-  }, {
+  }, 
+  {
     path: '/order',
     name: 'order',
     component: () => import('../pages/order'),
