@@ -25,8 +25,9 @@ export default {
       })
     },
     getCartCount () {
-      this.axios.get('/carts/products/sum').then(() => {
+      this.axios.get('/carts/products/sum').then((res) => {
         // to-do 保存到VueX中
+          this.$store.dispatch('saveCartCount',res);
 
       })
     }

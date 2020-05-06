@@ -68,8 +68,8 @@ export default {
       }).then((res) => {
         this.$cookie.set('userId', res.id, { expires: 'Session' });
         // dispatch:触发action  存储
-        this.$store.dispatch('saveUserName',res.username);
-        // this.saveUserName(res.username);
+        // this.$store.dispatch('saveUserName',res.username);
+        this.saveUserName(res.username);
         this.$router.push('/index');
       })
     },
